@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/iwanaga/met-collector",
   "dependencies": {
+    "heat-index": "0.0.3",
     "johnny-five": "^0.8.50"
   }
 }
