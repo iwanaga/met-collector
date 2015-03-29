@@ -1,0 +1,28 @@
+{
+  "name": "met-collector",
+  "version": "0.0.0",
+  "description": "collect temperature, humidity and atomoshpric pressure from Arduino.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iwanaga/met-collector.git"
+  },
+  "keywords": [
+    "arduino",
+    "temperature",
+    "humidity",
+    "pressure"
+  ],
+  "author": "iwanaga",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/iwanaga/met-collector/issues"
+  },
+  "homepage": "https://github.com/iwanaga/met-collector",
+  "dependencies": {
+    "johnny-five": "^0.8.50"
+  }
+}
