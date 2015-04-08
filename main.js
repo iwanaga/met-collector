@@ -1,6 +1,7 @@
 var j5 = require('johnny-five'),
     HI = require('heat-index'),
     post = require('./lib/http_post'),
+    conf = require('./app-conf.json'),
     arduino = new j5.Board(),
     COMMAND = {
         TH: {
@@ -19,7 +20,7 @@ function onString(data) {
         return;
     }
     if (response.type === 'TH') {
-        arduino.emit('TH', response);
+        arduino.emit('TH', response, conf);
     } else if (response.type === 'AC') {
         arduino.emit('AC:toggled', response);
     }
@@ -54,5 +55,5 @@ arduino.on('ready', function () {
     arduino.on('string', function (data) {
         onString(data);
     });
-    setInterval(requestTemperatureHumidity, 60000);
+    setInterval(requestTemperatureHumidity, conf.requestInterval);
 });
