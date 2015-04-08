@@ -1,6 +1,5 @@
 {
   "hostname": "localhost",
   "port": 9000,
-  "path": "/api/thermohygros",
   "requestInterval": 60000
 }
