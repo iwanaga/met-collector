@@ -28,6 +28,7 @@ function onString(data) {
 
 arduino.on('TH', post);
 arduino.on('AP', post);
+arduino.on('IL', post);
 
 // format string data to object
 function parseStringMessage(data) {
@@ -67,10 +68,22 @@ function requestPressure() {
     arduino.io.sendString(COMMAND.AP.GET);
 }
 
+function requestIlluminance() {
+    var sensor = new j5.Sensor({
+        pin: 'A2',
+        freq: conf.requestInterval
+    });
+    sensor.on('data', function (err, value) {
+        arduino.emit('IL', { illuminance: value }, conf, '/api/illuminances');
+    });
+}
+
 arduino.on('ready', function () {
     arduino.on('string', function (data) {
         onString(data);
     });
+    requestIlluminance();
+
     setInterval(requestTemperatureHumidity, conf.requestInterval);
     setTimeout(function(){
         setInterval(requestPressure, conf.requestInterval)
