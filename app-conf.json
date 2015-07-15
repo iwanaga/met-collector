@@ -1,5 +1,5 @@
 {
   "hostname": "localhost",
   "port": 9000,
-  "requestInterval": 60000
+  "requestInterval": 300000
 }
